@@ -16,42 +16,56 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="">Nome</label>
-                      <input class="form-control" placeholder="Insira o nome" type="text" value="">
+                      <input v-model="form.nome" class="form-control" :class="{ 'is-invalid':form.errors.has('nome')}" name="nome"
+                      placeholder="Insira o nome" type="text" value="">
+                      <has-error :form="form" field="nome"></has-error>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="">Nome Curto</label>
-                      <input class="form-control" placeholder="Insira o nome curto" type="text" value="">
+                      <input v-model="form.nomeCurto" class="form-control" :class="{ 'is-invalid':form.errors.has('nomeCurto')}" name="nomeCurto"
+                      placeholder="Insira o nome curto" type="text" value="">
+                      <has-error :form="form" field="nomeCurto"></has-error>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="">Nuit</label>
-                      <input class="form-control" placeholder="Insira o nuit" type="text" value="">
+                      <input v-model="form.nuit" class="form-control" :class="{ 'is-invalid':form.errors.has('nuit')}" name="nuit"
+                      placeholder="Insira o nuit" type="text" value="">
+                      <has-error :form="form" field="nuit"></has-error>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="">Email</label>
-                      <input class="form-control" placeholder="Insira o email" type="text" value="">
+                      <input v-model="form.email" class="form-control" :class="{ 'is-invalid':form.errors.has('email')}" name="email"
+                      placeholder="Insira o email" type="email" value="">
+                      <has-error :form="form" field="email"></has-error>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="">Telemovel 1</label>
-                      <input class="form-control" placeholder="Insira o telemovel 1" type="text" value="">
+                      <input v-model="form.telemovel1" class="form-control" :class="{ 'is-invalid':form.errors.has('telemovel1')}" name="telemovel1"
+                      placeholder="Insira o telemovel 1" type="text" value="">
+                      <has-error :form="form" field="telemovel1"></has-error>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="">Telemovel 2</label>
-                      <input class="form-control" placeholder="Insira o telemovel 2" type="text" value="">
+                      <input v-model="form.telemovel2" class="form-control" :class="{ 'is-invalid':form.errors.has('telemovel2')}" name="telemovel2"
+                      placeholder="Insira o telemovel 2" type="text" value="">
+                      <has-error :form="form" field="telemovel2"></has-error>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="">Provincia</label><select class="form-control">
+                      <label for="">Provincia</label>
+                      <select v-model="form.provincia" class="form-control"
+                      :class="{ 'is-invalid':form.errors.has('provincia')}" name="provincia">
                         <option>
                           Maputo
                         </option>
@@ -62,11 +76,13 @@
                           Inhambane
                         </option>
                       </select>
+                      <has-error :form="form" field="provincia"></has-error>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="">Cidade</label><select class="form-control">
+                      <label for="">Cidade</label>
+                      <select v-model="form.cidade" class="form-control" :class="{ 'is-invalid':form.errors.has('cidade')}" name="cidade">
                         <option>
                           Maputo
                         </option>
@@ -77,11 +93,15 @@
                           Xai-Xai
                         </option>
                       </select>
+                      <has-error :form="form" field="cidade"></has-error>
                     </div>
                   </div>
                   <div class="col-sm-12">
                     <div class="form-group">
-                        <label> Endereco</label><textarea class="form-control" rows="3"></textarea>
+                        <label> Endereco</label>
+                        <textarea v-model="form.endereco" class="form-control"
+                        :class="{ 'is-invalid':form.errors.has('endereco')}" name="endereco" rows="3"></textarea>
+                        <has-error :form="form" field="endereco"></has-error>
                     </div>
                   </div>
                 </div>
@@ -98,6 +118,21 @@
 
 <script>
     export default {
+        data() {
+            return {
+                form: new Form({
+                    nome: '',
+                    nomeCurto: '',
+                    nuit: '',
+                    email: '',
+                    telemovel1: '',
+                    telemovel2: '',
+                    provincia: '',
+                    cidade: '',
+                    endereco: '',
+                })
+            }
+        },
         mounted() {
 
         }
