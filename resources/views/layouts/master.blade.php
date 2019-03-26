@@ -1066,20 +1066,12 @@
                 <!--------------------
                 START - Color Scheme Toggler
                 -------------------->
-              <div class="floated-colors-btn second-floated-btn">
-                <div class="os-toggler-w">
-                  <div class="os-toggler-i">
-                    <div class="os-toggler-pill"></div>
-                  </div>
-                </div>
-                <span>Dark </span><span>Colors</span>
-              </div>
               <!--------------------
               END - Color Scheme Toggler
               --------------------><!--------------------
               START - Demo Customizer
               -------------------->
-              <div class="floated-customizer-btn third-floated-btn">
+              <div class="floated-customizer-btn second-floated-btn">
                 <div class="icon-w">
                   <i class="os-icon os-icon-ui-46"></i>
                 </div>
@@ -1334,15 +1326,15 @@
     <script src="js/demo_customizer.js?version=4.4.0"></script>
     <script src="js/main.js?version=4.4.0"></script>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    //   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    //   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    //   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    //   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-XXXXXXX-9', 'auto');
-      ga('send', 'pageview');
+    //   ga('create', 'UA-XXXXXXX-9', 'auto');
+    //   ga('send', 'pageview');
 
-      $(".router-link-activep").css("color", "white");
+    //   $(".router-link-activep").css("color", "white");
     </script>
 
   </body>

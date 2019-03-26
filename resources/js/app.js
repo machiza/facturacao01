@@ -20,11 +20,13 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 let routes = [
+    { path: '/home', redirect: '/dashboardnc' },
     { path: '/dashboardnc', component: require('./components/Dashboardnc.vue').default },
     { path: '/empresas', component: require('./components/empresa/list.vue').default }
   ]
 
 const router = new VueRouter({
+    mode: 'history',
     routes // short for `routes: routes`
 })
 

@@ -1,8 +1,5 @@
 <template>
     <div class="element-wrapper">
-        <h6 class="element-header">
-        Data Tables
-        </h6>
         <div class="element-box">
         <h5 class="form-inline justify-content-sm-end">
             <button class="mr-2 mb-2 btn btn-success" data-target="#onboardingFormModal" data-toggle="modal" type="button"> Adicionar <i class="fa fa-user-plus fa-fw"></i></button>
