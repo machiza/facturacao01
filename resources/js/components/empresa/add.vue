@@ -1,5 +1,5 @@
 <template>
-    <div aria-hidden="true" class="onboarding-modal modal fade animated" id="onboardingFormModal" role="dialog" tabindex="-1">
+    <div aria-hidden="true" class="onboarding-modal modal fade animated" id="addEmpresa" role="dialog" tabindex="-1">
         <div class="modal-dialog modal-centered modal-dialog-centered" role="document">
           <div class="modal-content text-center">
             <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Fechar</span><span class="os-icon os-icon-close"></span></button>
@@ -8,7 +8,7 @@
               <h4 class="onboarding-title">
                 Adicionar nova Empresa
               </h4>
-              <form @submit.prevent="createEmpresa">
+              <form @submit.prevent="editmode ? updateEmpresa() : createEmpresa()">
                 <div class="row">
                     <!-- <div class="col-sm-4"></div>
                     <div class="col-sm-4">
@@ -101,7 +101,8 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger" data-dismiss="modal" type="button"> Cancelar</button>
-                    <button class="btn btn-primary" type="submit"> Salvar</button>
+                    <button v-show="editmode" class="btn btn-success" type="submit"> Actualizar</button>
+                    <button v-show="!editmode" class="btn btn-primary" type="submit"> Salvar</button>
                 </div>
               </form>
             </div>
@@ -114,7 +115,9 @@
     export default {
         data() {
             return {
+                editmode: false,
                 form: new Form({
+                    id: '',
                     nome: '',
                     nomeCurto: '',
                     nuit: '',
@@ -128,9 +131,84 @@
             }
         },
         methods: {
+            updateEmpresa(id) {
+                this.$Progress.start();
+                this.form.put('api/empresas/'+this.form.id)
+                    .then(() => {
+                        Fire.$emit('empresa-updated');
+
+                        toast.fire({
+                            type: 'success',
+                            title: 'Empresa Actualizada com Sucesso!'
+                        })
+
+                        this.$Progress.finish();
+                    })
+                    .catch(() => {
+                        this.$Progress.fail();
+                        swal.fire("Falho!", "Havia algo errado.", "warning");
+                    });
+            },
             createEmpresa() {
-                this.form.post('api/empresas');
+                this.$Progress.start();
+                this.form.post('api/empresas')
+                    .then((res) => {
+                        Fire.$emit('empresa-added', res.data)
+
+                        toast.fire({
+                            type: 'success',
+                            title: 'Empresa Salva com sucesso!'
+                        })
+
+                        this.$Progress.finish();
+                    })
+                    .catch(() => {
+                        this.$Progress.fail();
+                        swal.fire("Falho!", "Havia algo errado.", "warning");
+                    });
             }
+        },
+        created() {
+            Fire.$on('empresa-deleted', id => {
+                swal.fire({
+                    title: 'Você tem certeza?',
+                    text: "Você não poderá reverter isso!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim, remover isso!'
+                }).then((result) => {
+                    if (result.value) {
+                        this.form.delete('api/empresas/'+id)
+                        .then(() => {
+                            swal.fire(
+                                'Removido!',
+                                'Empresa foi removida.',
+                                'success'
+                            )
+                            Fire.$emit('empresa-deleted-done');
+                        }).catch(()=> {
+                            swal.fire("Falhou!", "Algo esta errado.", "warning");
+                        });
+                    }
+                })
+            });
+
+            Fire.$on('newModalEmpresa', () => {
+                this.editmode = false;
+                this.form.reset();
+            });
+
+            Fire.$on('editModalEmpresa', () => {
+                this.editmode = true;
+                this.form.reset();
+            });
+
+            Fire.$on('editModalEmpresaFill', empresa => {
+                this.form.reset();
+                this.form.fill(empresa);
+            });
         },
         mounted() {
 

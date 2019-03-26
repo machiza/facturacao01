@@ -17,7 +17,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        return Empresa::latest()->paginate(10);
+        return Empresa::all();
     }
 
     /**
@@ -31,8 +31,8 @@ class EmpresaController extends Controller
         $this->validate($request, [
             'nome' => 'required|string|max:191',
             'nomeCurto' => 'required|string|max:191',
-            'nuit' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users',
+            'nuit' => 'required|integer',
+            'email' => 'required|string|email|max:191|unique:empresas',
             'telemovel1' => 'required|integer|min:9',
             'provincia' => 'required',
             'cidade' => 'required',
@@ -85,7 +85,22 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $empresa = Empresa::findOrFail($id);
+
+        $this->validate($request, [
+            'nome' => 'required|string|max:191',
+            'nomeCurto' => 'required|string|max:191',
+            'nuit' => 'required|integer',
+            'email' => 'required|string|email|max:191|unique:empresas,email,'.$empresa->id,
+            'telemovel1' => 'required|integer|min:9',
+            'provincia' => 'required',
+            'cidade' => 'required',
+            'endereco' => 'required|string|max:191',
+        ]);
+
+        $empresa->update($request->all());
+
+        return ['message' => 'Infomaccao da empresa actualizada'];
     }
 
     /**
@@ -96,6 +111,9 @@ class EmpresaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $empresa = Empresa::findOrFail($id);
+        // delete the user
+        $empresa->delete();
+        return ['message' => 'Empresa Removida'];
     }
 }
