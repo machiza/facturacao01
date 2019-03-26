@@ -17,7 +17,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        return Empresa::latest()->paginate(10);
     }
 
     /**
@@ -33,10 +33,10 @@ class EmpresaController extends Controller
             'nomeCurto' => 'required|string|max:191',
             'nuit' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users',
-            'telemovel1' => 'required|string|email|max:191',
-            'provincia' => 'required|string|email|max:191',
-            'cidade' => 'required|string|email|max:191',
-            'endereco' => 'required|string|email|max:191',
+            'telemovel1' => 'required|integer|min:9',
+            'provincia' => 'required',
+            'cidade' => 'required',
+            'endereco' => 'required|string|max:191',
         ]);
 
         $empresa = Empresa::create([
@@ -54,8 +54,8 @@ class EmpresaController extends Controller
         $perfil_root = Perfil::where('nome','admin')->first();
 
         $user = new User();
-        $user->name = "Demo";
-        $user->email = "demo@n3.co.mz";
+        $user->name = $empresa->nomeCurto;
+        $user->email = $empresa->email;
         $user->photo = "profile.png";
         $user->password = bcrypt('demo');
         $user->empresa_id = $empresa->id;

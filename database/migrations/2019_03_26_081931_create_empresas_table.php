@@ -17,10 +17,10 @@ class CreateEmpresasTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('nomeCurto');
-            $table->string('nuit');
+            $table->bigInteger('nuit');
             $table->string('email');
-            $table->string('telemovel1');
-            $table->string('telemovel2');
+            $table->integer('telemovel1');
+            $table->integer('telemovel2');
             $table->string('provincia');
             $table->string('cidade');
             $table->string('endereco');
