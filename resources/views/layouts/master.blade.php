@@ -11,6 +11,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="empresa-id" content="{{ Auth::user()->empresa_id }}">
+    <meta name="user-id" content="{{ Auth::user()->id }}">
 
     <!-- Font Awesome -->
     {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
@@ -38,106 +40,12 @@
   </head>
   <body class="menu-position-side menu-side-left full-screen with-content-panel">
     <div class="all-wrapper with-side-panel solid-bg-all" id="app">
-      {{-- <div aria-hidden="true" class="onboarding-modal modal fade animated show-on-load" role="dialog" tabindex="-1">
-        <div class="modal-dialog modal-centered" role="document">
-          <div class="modal-content text-center">
-            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Skip Intro</span><span class="os-icon os-icon-close"></span></button>
-            <div class="onboarding-slider-w">
-              <div class="onboarding-slide">
-                <div class="onboarding-media">
-                  <img alt="" src="img/bigicon2.png" width="200px">
-                </div>
-                <div class="onboarding-content with-gradient">
-                  <h4 class="onboarding-title">
-                    Example of onboarding screen!
-                  </h4>
-                  <div class="onboarding-text">
-                    This is an example of a multistep onboarding screen, you can use it to introduce your customers to your app, or collect additional information from them before they start using your app.
-                  </div>
-                </div>
-              </div>
-              <div class="onboarding-slide">
-                <div class="onboarding-media">
-                  <img alt="" src="img/bigicon5.png" width="200px">
-                </div>
-                <div class="onboarding-content with-gradient">
-                  <h4 class="onboarding-title">
-                    Example Request Information
-                  </h4>
-                  <div class="onboarding-text">
-                    In this example you can see a form where you can request some additional information from the customer when they land on the app page.
-                  </div>
-                  <form>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="">Your Full Name</label><input class="form-control" placeholder="Enter your full name..." type="text" value="">
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="">Your Role</label><select class="form-control">
-                            <option>
-                              Web Developerselected has-sub-menu
-                            </option>
-                            <option>
-                              Business Owner
-                            </option>
-                            <option>
-                              Other
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div class="onboarding-slide">
-                <div class="onboarding-media">selected has-sub-menu
-                  <img alt="" src="img/bigicon6.png" width="200px">
-                </div>
-                <div class="onboarding-content with-gradient">
-                  <h4 class="onboarding-title">
-                    Showcase App Features
-                  </h4>
-                  <div class="onboarding-text">
-                    In this example you can showcase some of the features of your application, it is very handy to make new users aware of your hidden features. You can use boostrap columns to split them up.
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <ul class="features-list">
-                        <li>
-                          Fully Responsive design
-                        </li>
-                        <li>
-                          Pre-built app layouts
-                        </li>
-                        <li>
-                          Incredible Flexibility
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-6">
-                      <ul class="features-list">
-                        <li>
-                          Boxed & Full Layouts
-                        </li>
-                        <li>
-                          Based on Bootstrap 4
-                        </li>
-                        <li>
-                          Developer Friendly
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> --}}
+    @if (Auth::user()->type != "root")
+        @if (!Auth::user()->first_time_login)
+            <empresa-first></empresa-first>
+        @endif
+    @endif
+
       <div class="search-with-suggestions-w">
         <div class="search-with-suggestions-modal">
           <div class="element-search">
@@ -285,10 +193,10 @@
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
-                  Maria Gomez
+                    {{ Auth::user()->name }}
                 </div>
                 <div class="logged-user-role">
-                  Administrator
+                    {{ Auth::user()->type }}
                 </div>
               </div>
             </div>
@@ -660,7 +568,7 @@
         --------------------><!--------------------
         START - Main Menu
         -------------------->
-        <div class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link" style="height:800px;">
+        <div class="menu-w menu-has-selected-link selected-menu-color-light menu-activated-on-click color-scheme-light color-style-transparent sub-menu-color-light menu-position-side menu-side-left menu-layout-compact sub-menu-style-inside" style="height:800px;">
           <div class="logo-w">
             <a class="logo" href="index.html">
               <div class="logo-element"></div>
@@ -691,14 +599,22 @@
                         <span>Empresas</span>
                     </router-link>
                 </li>
+                <li class="selected">
+                    <router-link to="/empresas">
+                        <div class="icon-w">
+                            <div class="picons-thin-icon-thin-0418_bank_pantheon"></div>
+                        </div>
+                        <span>Perfies</span>
+                    </router-link>
+                </li>
             @else
                 <li class="selected">
-                    <a href="index.html">
+                    <router-link to="/dashboard">
                         <div class="icon-w">
                             <div class="os-icon os-icon-layout"></div>
                         </div>
                         <span>Dashboard</span>
-                    </a>
+                    </router-link>
                 </li>
                 <li class=" has-sub-menu">
                     <a href="layouts_menu_top_image.html">
@@ -991,10 +907,15 @@
                       </div>
                       <div class="logged-user-info-w">
                         <div class="logged-user-name">
-                          Maria Gomez
+                        {{ Auth::user()->name }}
                         </div>
                         <div class="logged-user-role">
-                          Administrator
+                            @if (Auth::user()->type === "root")
+                                {{ Auth::user()->type }} - Admin
+                            @else
+                                {{ Auth::user()->type }}
+                            @endif
+
                         </div>
                       </div>
                     </div>
@@ -1066,17 +987,25 @@
                 <!--------------------
                 START - Color Scheme Toggler
                 -------------------->
+                {{-- <div class="floated-colors-btn second-floated-btn">
+                    <div class="os-toggler-w">
+                    <div class="os-toggler-i">
+                        <div class="os-toggler-pill"></div>
+                    </div>
+                    </div>
+                    <span>Dark </span><span>Colors</span>
+                </div> --}}
               <!--------------------
               END - Color Scheme Toggler
               --------------------><!--------------------
               START - Demo Customizer
               -------------------->
-              <div class="floated-customizer-btn second-floated-btn">
+              {{-- <div class="floated-customizer-btn third-floated-btn">
                 <div class="icon-w">
                   <i class="os-icon os-icon-ui-46"></i>
                 </div>
                 <span>Customizer</span>
-              </div>
+              </div> --}}
               <div class="floated-customizer-panel">
                 <div class="fcp-content">
                   <div class="close-customizer-btn">

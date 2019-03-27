@@ -19,7 +19,7 @@
                 </form>
             </div>
             <h6 class="element-header">
-                Sales Dashboard Admin
+                Sales Dashboard
             </h6>
             <div class="element-content">
                 <div class="row">

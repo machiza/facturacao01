@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('isRoot',function($user) {
-            return $user->perfies('root');
+            return $user->type === "root";
         });
     }
 }

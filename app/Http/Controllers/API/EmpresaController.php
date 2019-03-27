@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Perfil;
 use App\User;
 use App\Empresa;
+use Auth;
 
 class EmpresaController extends Controller
 {
@@ -56,6 +57,7 @@ class EmpresaController extends Controller
         $user = new User();
         $user->name = $empresa->nomeCurto;
         $user->email = $empresa->email;
+        $user->type = "Administrador";
         $user->photo = "profile.png";
         $user->password = bcrypt('demo');
         $user->empresa_id = $empresa->id;
@@ -73,7 +75,10 @@ class EmpresaController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->first_time_login = 1;
+        $user->save();
+        return Empresa::findOrFail($user->empresa_id);
     }
 
     /**

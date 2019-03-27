@@ -21,8 +21,28 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        if(!$request->user()->authorizeRoles(['root'])) {
+            return view('home');
+        }else {
+            return redirect('/admin');
+        }
+
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function admin()
+    {
+        // if($request->user()->authorizeRoles(['root'])) {
+            return view('admin');
+        // }else {
+        //     return redirect('/home');
+        // }
+
     }
 }
