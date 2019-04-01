@@ -21,5 +21,50 @@ class PrevilegioTableSeeder extends Seeder
         $previlegio->nome = "admin";
         $previlegio->descricao = "Administrar do sistema";
         $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "criar empresa";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "editar empresa";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "remover empresa";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "criar utiizador";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "editar utilzador";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "remover utilizador";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "criar perfies";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "editar perfies";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
+
+        $previlegio = new Previlegio();
+        $previlegio->nome = "remover perfies";
+        $previlegio->descricao = "Administrar do sistema";
+        $previlegio->save();
     }
 }

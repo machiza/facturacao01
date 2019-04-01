@@ -14,12 +14,7 @@
     <meta name="empresa-id" content="{{ Auth::user()->empresa_id }}">
     <meta name="user-id" content="{{ Auth::user()->id }}">
 
-    <!-- Font Awesome -->
-    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet"> --}}
+
 
     <link href="favicon.png" rel="shortcut icon">
     <link href="/css/app.css" rel="stylesheet">
@@ -36,6 +31,13 @@
     <link href="icon_fonts_assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
     <link href="icon_fonts_assets/picons-thin/style.css" rel="stylesheet">
     <link href="icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet"> --}}
 
   </head>
   <body class="menu-position-side menu-side-left full-screen with-content-panel">
@@ -600,9 +602,17 @@
                     </router-link>
                 </li>
                 <li class="selected">
-                    <router-link to="/empresas">
+                    <router-link to="/utilizadores">
                         <div class="icon-w">
-                            <div class="picons-thin-icon-thin-0418_bank_pantheon"></div>
+                            <div class="fas fa-user"></div>
+                        </div>
+                        <span>Utilizadores</span>
+                    </router-link>
+                </li>
+                <li class="selected">
+                    <router-link to="/perfies">
+                        <div class="icon-w">
+                            <div class="fas fa-user-cog"></div>
                         </div>
                         <span>Perfies</span>
                     </router-link>
@@ -1214,14 +1224,7 @@
       <div class="display-type"></div>
     </div>
 
-    <!-- JQuery -->
-    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
-    <!-- Bootstrap tooltips -->
-    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script> --}}
-    <!-- Bootstrap core JavaScript -->
-    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script> --}}
-    <!-- MDB core JavaScript -->
-    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/js/mdb.min.js"></script> --}}
+
     <script src="/js/app.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
@@ -1265,6 +1268,14 @@
 
     //   $(".router-link-activep").css("color", "white");
     </script>
+    <!-- JQuery -->
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/js/mdb.min.js"></script> --}}
 
   </body>
 </html>

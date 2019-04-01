@@ -60,7 +60,7 @@ class EmpresaController extends Controller
         $user->type = "Administrador";
         $user->photo = "profile.png";
         $user->password = bcrypt('demo');
-        $user->empresa_id = $empresa->id;
+        $user->empresa()->associate($empresa);;
         $user->save();
         $user->perfies()->attach($perfil_root);
 

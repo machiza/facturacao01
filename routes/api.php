@@ -18,5 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResources([
-    'empresas' => 'API\EmpresaController'
+    'empresas' => 'API\EmpresaController',
+    'users' => 'API\UserController',
+    'perfies' => 'API\PerfilController'
 ]);

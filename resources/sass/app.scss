@@ -7,6 +7,17 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+// Material Design Bootstrap
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import '~bootstrap/scss/bootstrap';
+@import "~mdbvue/build/css/mdb.css";
+@import "~mdbootstrap/css/mdb.css";
+@import "~mdbootstrap/scss/mdb.scss";
+
 
 .navbar-laravel {
   background-color: #fff;
@@ -20,4 +31,33 @@
 
 .router-link-active > div {
     color: #fff !important;
+}
+
+// .dataTables_scrollBody {
+//     max-height: 200px;
+// }
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+    bottom: .5em;
+}
+
+// .table-striped tbody tr:nth-of-type(odd) {
+//     background: white !important;
+// }
+
+table.table a.edit {
+    color: blue;
+}
+
+table.table a.delete {
+    color: red;
 }

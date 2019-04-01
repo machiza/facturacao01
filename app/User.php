@@ -10,8 +10,16 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    /**
+     * Get the empresa that owns the users.
+     */
+    public function empresa()
+    {
+        return $this->belongsTo('App\Empresa');
+    }
+
     public function perfies() {
-        return $this->belongsToMany('App\Perfil');
+        return $this->belongsToMany('App\Perfil')->oldest();
     }
 
     public function authorizeRoles($roles) {

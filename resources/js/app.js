@@ -45,7 +45,9 @@ let routes = [
     { path: '/home', redirect: '/dashboard' },
     { path: '/dashboardnc', component: require('./components/Dashboardnc.vue').default },
     { path: '/dashboard', component: require('./components/Dashboard.vue').default },
-    { path: '/empresas', component: require('./components/empresa/list.vue').default }
+    { path: '/empresas', component: require('./components/empresa/list.vue').default },
+    { path: '/utilizadores', component: require('./components/user/list.vue').default },
+    { path: '/perfies', component: require('./components/perfies/list.vue').default }
   ]
 
 const router = new VueRouter({
@@ -73,6 +75,8 @@ window.Fire = new Vue();
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('empresa-add', require('./components/empresa/add.vue').default);
 Vue.component('empresa-first', require('./components/empresa/first.vue').default);
+Vue.component('user-add', require('./components/user/add.vue').default);
+Vue.component('perfil-add', require('./components/perfies/add.vue').default);
 
 Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttribute('content');
 
