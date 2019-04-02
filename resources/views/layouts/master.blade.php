@@ -191,7 +191,7 @@
           <div class="menu-and-user">
             <div class="logged-user-w">
               <div class="avatar-w">
-                <img alt="" src="img/avatar1.jpg">
+                <img alt="" src="img/profile/{{ Auth::user()->photo }}">
               </div>
               <div class="logged-user-info-w">
                 <div class="logged-user-name">
@@ -908,12 +908,12 @@
               <div class="logged-user-w">
                 <div class="logged-user-i">
                   <div class="avatar-w">
-                    <img alt="" src="img/avatar1.jpg">
+                    <img alt="" src="img/profile/{{ Auth::user()->photo }}">
                   </div>
                   <div class="logged-user-menu color-style-bright">
                     <div class="logged-user-avatar-info">
                       <div class="avatar-w">
-                        <img alt="" src="img/avatar1.jpg">
+                        <img alt="" src="img/profile/{{ Auth::user()->photo }}">
                       </div>
                       <div class="logged-user-info-w">
                         <div class="logged-user-name">

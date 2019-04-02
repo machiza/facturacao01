@@ -59,6 +59,10 @@ Vue.filter('myDate', function(created) {
     return moment(created).format('MMMM Do YYYY');
 });
 
+import Croppa from 'vue-croppa'
+
+Vue.use(Croppa)
+
 window.Fire = new Vue();
 
 /**

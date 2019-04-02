@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
         $user->name = "Demo";
         $user->email = "demo@n3.co.mz";
         $user->type = "root";
-        $user->photo = "profile.png";
+        $user->photo = "perfil.png";
         $user->password = bcrypt('demo');
         $user->save();
         $user->perfies()->attach($perfil_root);

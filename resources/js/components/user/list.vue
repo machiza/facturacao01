@@ -66,13 +66,14 @@
             axios.get("api/users")
                     .then((res) => {
                         this.users = res.data;
-                        console.log(this.users);
+                        // console.log(this.users);
                     });
         }
     },
     created() {
         Fire.$on('user-added', data => {
-            this.users.unshift(data);
+            // this.users.unshift(data);
+            this.loadUsers();
             $('#addUser').modal('hide');
         });
         Fire.$on('user-deleted-done', () => {
@@ -87,6 +88,7 @@
         this.dt = $('#table-users').DataTable({
             "scrollY": "50px",
             "scrollCollapse": true,
+            "ordering": false
         });
         $('.dataTables_length').addClass('bs-select');
         this.loadUsers();
@@ -98,6 +100,7 @@
                 this.dt = $('#table-users').DataTable({
                             "scrollY": "200px",
                             "scrollCollapse": true,
+                            "ordering": false
                         });
                 $('.dataTables_length').addClass('bs-select');
             });
