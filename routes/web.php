@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'HomeController@admin')->name('admin');
-Route::get('{path}', "HomeController@index")->where('path', '([A-z\/_.\d-]+)?');
+Route::get('home', 'HomeController@index')->name('home');
+Route::get('admin', 'HomeController@admin')->name('admin');
+Route::get('{path}', "HomeController@index2")->where('path', '([A-z\/_.\d-]+)?');
+
+// Route::get('locale/{locale}', function($locale) {
+//     Session::put('locale', $locale);
+//     App::setLocale($locale);
+//     return redirect()->back();
+// });

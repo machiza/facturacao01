@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app()->getLocale() }}">
   <head>
     <title>Admin Dashboard HTML Template</title>
     <meta charset="utf-8">
@@ -31,6 +31,7 @@
     <link href="icon_fonts_assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
     <link href="icon_fonts_assets/picons-thin/style.css" rel="stylesheet">
     <link href="icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
 
     <!-- Font Awesome -->
     {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
@@ -598,7 +599,7 @@
                         <div class="icon-w">
                             <div class="picons-thin-icon-thin-0418_bank_pantheon"></div>
                         </div>
-                        <span>Empresas</span>
+                        <span>@lang('home.empresas_menu')</span>
                     </router-link>
                 </li>
                 <li class="selected">
@@ -606,7 +607,7 @@
                         <div class="icon-w">
                             <div class="fas fa-user"></div>
                         </div>
-                        <span>Utilizadores</span>
+                        <span>{{ __('home.utilizadores_menu') }}</span>
                     </router-link>
                 </li>
                 <li class="selected">
@@ -614,7 +615,7 @@
                         <div class="icon-w">
                             <div class="fas fa-user-cog"></div>
                         </div>
-                        <span>Perfies</span>
+                        <span>{{ __('home.perfies_menu') }}</span>
                     </router-link>
                 </li>
             @else
@@ -631,11 +632,11 @@
                         <div class="icon-w">
                             <div class="os-icon os-icon-users"></div>
                         </div>
-                        <span>Terceiros</span>
+                        <span>{{ __('home.teceiros_menu') }}</span>
                     </a>
                     <div class="sub-menu-w">
                     <div class="sub-menu-header">
-                    Terceiros
+                        {{ __('home.teceiros_menu') }}
                     </div>
                     <div class="sub-menu-icon">
                     <i class="os-icon os-icon-users"></i>
@@ -643,10 +644,10 @@
                         <div class="sub-menu-i">
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="apps_pipeline.html">Clientes</a>
+                                    <a href="apps_pipeline.html">{{ __('home.clientes_menu') }}</a>
                                 </li>
                                 <li>
-                                    <a href="apps_projects.html">Fornecedores</a>
+                                    <a href="apps_projects.html">{{ __('home.fornecedores_menu') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -657,11 +658,11 @@
                         <div class="icon-w">
                             <div class="picons-thin-icon-thin-0491_box_shipping_modules"></div>
                         </div>
-                        <span>Stocks & Servicos</span>
+                        <span>{{ __('home.items_menu') }}</span>
                     </a>
                     <div class="sub-menu-w">
                         <div class="sub-menu-header">
-                            Stocks & Servicos
+                            {{ __('home.items_menu') }}
                         </div>
                         <div class="sub-menu-icon">
                             <i class="os-icon os-icon-layers"></i>
@@ -683,11 +684,11 @@
                         <div class="icon-w">
                             <div class="picons-thin-icon-thin-0394_business_handshake_deal_contract_sign"></div>
                         </div>
-                        <span>Vendas</span>
+                        <span>{{ __('home.vendas_menu') }}</span>
                     </a>
                     <div class="sub-menu-w">
                         <div class="sub-menu-header">
-                            Vendas
+                            {{ __('home.vendas_menu') }}
                         </div>
                         <div class="sub-menu-icon">
                             <i class="os-icon os-icon-layers"></i>
@@ -700,11 +701,11 @@
                         <div class="icon-w">
                             <div class="icon-basket"></div>
                         </div>
-                        <span>Compras</span>
+                        <span>{{ __('home.compras_menu') }}</span>
                     </a>
                     <div class="sub-menu-w">
                         <div class="sub-menu-header">
-                            Compras
+                            {{ __('home.compras_menu') }}
                         </div>
                         <div class="sub-menu-icon">
                             <i class="os-icon os-icon-layers"></i>
@@ -717,11 +718,11 @@
                         <div class="icon-w">
                             <div class="picons-thin-icon-thin-0426_money_payment_dollars_coins_cash"></div>
                         </div>
-                        <span>Tesouraria</span>
+                        <span>{{ __('home.tesouraria_menu') }}</span>
                     </a>
                     <div class="sub-menu-w">
                         <div class="sub-menu-header">
-                            Tesouraria
+                            {{ __('home.tesouraria_menu') }}
                         </div>
                         <div class="sub-menu-icon">
                             <i class="os-icon os-icon-layers"></i>
@@ -734,11 +735,11 @@
                         <div class="icon-w">
                             <div class="picons-thin-icon-thin-0431_money_atm_machine_withdrawal_cash"></div>
                         </div>
-                        <span>Despesas</span>
+                        <span>{{ __('home.despesas_menu') }}</span>
                     </a>
                     <div class="sub-menu-w">
                         <div class="sub-menu-header">
-                            Despesas
+                            {{ __('home.despesas_menu') }}
                         </div>
                         <div class="sub-menu-icon">
                             <i class="os-icon os-icon-layers"></i>
@@ -751,11 +752,11 @@
                         <div class="icon-w">
                             <div class="picons-thin-icon-thin-0376_screen_analytics_line_graph_growth"></div>
                         </div>
-                        <span>Relatorios</span>
+                        <span>{{ __('home.relatorios_menu') }}</span>
                     </a>
                     <div class="sub-menu-w">
                         <div class="sub-menu-header">
-                            Relatorios
+                            {{ __('home.relatorios_menu') }}
                         </div>
                         <div class="sub-menu-icon">
                             <i class="os-icon os-icon-layers"></i>
@@ -768,11 +769,11 @@
                         <div class="icon-w">
                             <div class="picons-thin-icon-thin-0052_settings_gears_preferences_gearbox"></div>
                         </div>
-                        <span>Configuracoes</span>
+                        <span>{{ __('home.config_menu') }}</span>
                     </a>
                     <div class="sub-menu-w">
                         <div class="sub-menu-header">
-                            Configuracoes
+                            {{ __('home.config_menu') }}
                         </div>
                         <div class="sub-menu-icon">
                             <i class="os-icon os-icon-layers"></i>
@@ -803,6 +804,25 @@
               <!--------------------
               START - Messages Link in secondary top menu
               -------------------->
+              {{-- <a href="/locale/en"><i class="flag-icon flag-icon-gb"></i><span>Ingles</span></a>
+              <a href="/locale/pt"><i class="flag-icon flag-icon-pt"></i><span>Portugues</span></a> --}}
+              <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left">
+                <i class="flag-icon flag-icon-pt"></i>
+                <div class="os-dropdown">
+                    <div class="icon-w">
+                        <i class="os-icon os-icon-ui-46"></i>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="en"><i class="flag-icon flag-icon-gb"></i><span>Ingles</span></a>
+                        </li>
+                        <li>
+                            <a href="pt"><i class="flag-icon flag-icon-pt"></i><span>Portugues</span></a>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+
               <div class="messages-notifications os-dropdown-trigger os-dropdown-position-left">
                 <i class="os-icon os-icon-mail-14"></i>
                 <div class="new-messages-count">
@@ -950,7 +970,7 @@
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                             <i class="os-icon os-icon-signs-11"></i>
-                            <span>{{ __('Logout') }}</span>
+                            <span>{{ __('home.sair_menu') }}</span>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

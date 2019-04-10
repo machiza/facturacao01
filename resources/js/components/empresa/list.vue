@@ -8,12 +8,12 @@
                 <table id="table-empresas" width="100%" class="table table-striped table-bordered table-sm">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Nuit</th>
-                            <th>Email</th>
-                            <th>Telemovel</th>
-                            <th>Data</th>
-                            <th style="text-align:center">Acções</th>
+                            <th>{{ ('home.nome_titulo') }}</th>
+                            <th>{{ ('home.nuit_titulo') }}</th>
+                            <th>{{ ('home.email_titulo') }}</th>
+                            <th>{{ ('home.telemovel_titulo') }}</th>
+                            <th>{{ ('home.data_titulo') }}</th>
+                            <th style="text-align:center">{{ ('home.acção_titulo') }}</th>
                         </tr>
                     </thead>
                     <tbody>
