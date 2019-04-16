@@ -807,7 +807,12 @@
               {{-- <a href="/locale/en"><i class="flag-icon flag-icon-gb"></i><span>Ingles</span></a>
               <a href="/locale/pt"><i class="flag-icon flag-icon-pt"></i><span>Portugues</span></a> --}}
               <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left">
-                <i class="flag-icon flag-icon-pt"></i>
+                @if (app()->getLocale() === "pt")
+                    <i class="flag-icon flag-icon-pt"></i>
+                @else
+                    <i class="flag-icon flag-icon-gb"></i>
+                @endif
+
                 <div class="os-dropdown">
                     <div class="icon-w">
                         <i class="os-icon os-icon-ui-46"></i>
